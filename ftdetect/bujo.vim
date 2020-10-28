@@ -1,5 +1,5 @@
 "Set bujo file type
-set filetype=bujo
+au BufNewFile,BufRead *.bjo set filetype=bujo
 
 "Set indentation
-set autoindent noexpandtab tabstop=2 shiftwidth=2
+au BufNewFile,BufRead *.bjo set autoindent noexpandtab tabstop=2 shiftwidth=2
