@@ -12,6 +12,9 @@ syntax case ignore
 syn match bjBullets "^\t*[ox\~\<\>\*\=\-]\s" contained
 hi def link bjBullets Operator
 
+syn match bjNumberList "^\t*\d*\.\s" contained
+hi def link bjNumberList Operator
+
 syn match bjTag "\W@.*[\s$\n\r]"
 hi def link bjTag Include
 
@@ -21,7 +24,7 @@ hi def link bjEmphasis String
 syn region bjSpecs start="\[" end="\]"
 hi def link bjSpecs Identifier
 
-syn cluster bjItemElements contains=bjBullets,bjTag,bjEmphasis,bjSpecs
+syn cluster bjItemElements contains=bjBullets,bjTag,bjEmphasis,bjSpecs,bjNumberList 
 
 syn match bjTaskItem "^\t*[ox\~\<\>\*\=\-]\s.*$" contains=@bjItemElements
 hi def link bjTaskItem Special
@@ -35,10 +38,15 @@ hi def link bjCancelledItem Ignore
 syn match bjNoteItem "^\t*\-\s.*$" contains=@bjItemElements
 hi def link bjNoteItem Normal
 
+syn match bjOrderedListItem "^\t*\d*\.\s.*$" contains=@bjItemElements
+hi def link bjOrderedListItem Normal
+
 syn match bjHeading "^#.*$"
 hi def link bjHeading Constant
 
-hi Ignore ctermfg=241 guifg=#626262
+hi Ignore ctermfg=22 guifg=#005f00
+hi NonText ctermfg=241 guifg=#626262
+hi SpecialKey ctermfg=239 guifg=#585858
 hi Special gui=bold cterm=bold
 
 " Include JAVA highlighting between ```java and ``` tags
