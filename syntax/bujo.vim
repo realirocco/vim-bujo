@@ -48,14 +48,15 @@ hi Ignore ctermfg=22 guifg=#005f00
 hi NonText ctermfg=241 guifg=#626262
 hi SpecialKey ctermfg=239 guifg=#585858
 hi Special gui=bold cterm=bold
+hi String ctermfg=1  guifg=#800000 
 
 " Include JAVA highlighting between ```java and ``` tags
 syn include @notesJava syntax/java.vim
 syn region javaCustom start=+```java+ keepend end=+```+ contains=@notesJava
 let b:current_syntax="bujo"
 
-" Include mySQL highlighting between ```mysql and ``` tags
+" Include mySQL highlighting between ```sql and ``` tags
 unlet b:current_syntax
 syn include @notesMySql syntax/mysql.vim
-syn region mySqlCustom start=+```mysql+ keepend end=+```+ contains=@notesMySql
+syn region mySqlCustom start=+```sql+ keepend end=+```+ contains=@notesMySql
 let b:current_syntax="bujo"

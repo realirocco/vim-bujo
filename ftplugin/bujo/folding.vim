@@ -2,7 +2,7 @@
 "fold mysql or java snippets
 function! BJFold()
   let thisline = getline(v:lnum)
-  if thisline =~ '```mysql' || thisline =~ '```java'
+  if thisline =~ '```[a-z]'
     return '>1'
   elseif thisline =~ '```'
     return '<1'
