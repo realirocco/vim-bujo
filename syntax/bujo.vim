@@ -41,14 +41,14 @@ hi def link bjNoteItem Normal
 syn match bjOrderedListItem "^\t*\d*\.\s.*$" contains=@bjItemElements
 hi def link bjOrderedListItem Normal
 
-syn match bjHeading "^#.*$"
-hi def link bjHeading Constant
+syn match bjHeading "^-*$"
+hi def link bjHeading Comment
 
 hi Ignore ctermfg=22 guifg=#005f00
 hi NonText ctermfg=241 guifg=#626262
 hi SpecialKey ctermfg=239 guifg=#585858
 hi Special gui=bold cterm=bold
-hi String ctermfg=1  guifg=#800000 
+hi Comment ctermfg=1  guifg=#800000 
 
 " Include JAVA highlighting between ```java and ``` tags
 syn include @notesJava syntax/java.vim
@@ -59,4 +59,10 @@ let b:current_syntax="bujo"
 unlet b:current_syntax
 syn include @notesMySql syntax/mysql.vim
 syn region mySqlCustom start=+```sql+ keepend end=+```+ contains=@notesMySql
+let b:current_syntax="bujo"
+
+" Include bash highlighting between ```bash and ``` tags
+unlet b:current_syntax
+syn include @notesBash syntax/bash.vim
+syn region bashCustom start=+```bash+ keepend end=+```+ contains=@notesBash
 let b:current_syntax="bujo"
