@@ -15,7 +15,7 @@ hi def link bjBullets Operator
 syn match bjNumberList "^\t*\d*\.\s" contained
 hi def link bjNumberList Operator
 
-syn match bjTag "\W@.*[\s$\n\r]"
+syn match bjTag "\s@[a-zA-Z0-9\-]*"
 hi def link bjTag Include
 
 syn region bjEmphasis start="`" end="`" contained
