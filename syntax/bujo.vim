@@ -9,13 +9,20 @@ endif
 
 syntax case ignore
 
-syn match bjBullets "^\t*[ox\~\<\>\*\=\-]\s" contained
+syn match bjBullets "^\s*\*\s" contained
+syn match bjBullets "^\s*o\s" contained
+syn match bjBullets "^\s*x\s" contained
+syn match bjBullets "^\s*\~\s" contained
+syn match bjBullets "^\s*<\s" contained
+syn match bjBullets "^\s*>\s" contained
+syn match bjBullets "^\s*=\s" contained
+syn match bjBullets "^\s*\-\s" contained
 hi def link bjBullets Operator
 
 syn match bjNumberList "^\t*\d*\.\s" contained
 hi def link bjNumberList Operator
 
-syn match bjTag "\s@[a-zA-Z0-9\-]*"
+syn match bjTag "\s@[a-zA-Z0-9]*"
 hi def link bjTag Include
 
 syn region bjEmphasis start="`" end="`" contained
@@ -41,14 +48,14 @@ hi def link bjNoteItem Normal
 syn match bjOrderedListItem "^\t*\d*\.\s.*$" contains=@bjItemElements
 hi def link bjOrderedListItem Normal
 
-syn match bjHeading "^-*$"
+syn match bjHeading "--.*--"
 hi def link bjHeading Comment
 
 hi Ignore ctermfg=22 guifg=#005f00
 hi NonText ctermfg=241 guifg=#626262
 hi SpecialKey ctermfg=239 guifg=#585858
 hi Special gui=bold cterm=bold
-hi Comment ctermfg=1  guifg=#800000 
+hi Comment gui=bold cterm=bold ctermfg=9  guifg=#ff0000 
 
 " Include JAVA highlighting between ```java and ``` tags
 syn include @notesJava syntax/java.vim
