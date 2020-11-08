@@ -15,6 +15,6 @@ function! BJFoldText()
     return " ▶︎ " .  getline(v:foldstart) . " [" . v:foldstart . "]  ... [" . v:foldend . "] " . getline(v:foldend)
 endfunction
 
-set foldmethod=expr foldexpr=BJFold() foldtext=BJFoldText() 
-set fillchars=fold:\ 
+setlocal foldmethod=expr foldexpr=BJFold() foldtext=BJFoldText() 
+setlocal fillchars=fold:\ 
 
