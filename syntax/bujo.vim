@@ -8,16 +8,21 @@ if exists("b:current_syntax")
 endif
 
 syntax case ignore
-setlocal iskeyword=*,o,x,~,<,>,=,-
 
-" TODO: exclude from headings items containg colon (:)
 syn match bjHeading "^[^\k\s].*\s\:"
 hi def link bjHeading Comment
 
 syn match bjTag "\s@\S*"
 hi def link bjTag Include
 
-syn match bjBullets "^\s*\k\s" contained
+syn match bjBullets "^\s*•\s" contained
+syn match bjBullets "^\s*o\s" contained
+syn match bjBullets "^\s*x\s" contained
+syn match bjBullets "^\s*\~\s" contained
+syn match bjBullets "^\s*>\s" contained
+syn match bjBullets "^\s*<\s" contained
+syn match bjBullets "^\s*=\s" contained
+syn match bjBullets "^\s*-\s" contained
 hi def link bjBullets Keyword
 
 syn match bjNumberList "^\s*\d*\.\s" contained
@@ -31,7 +36,7 @@ hi def link bjSpecs Identifier
 
 syn cluster bjItemElements contains=bjBullets,bjTag,bjEmphasis,bjSpecs,bjNumberList 
 
-syn match bjTaskItem "^\s*\k\s.*$" contains=@bjItemElements
+syn match bjTaskItem "^\s*[•ox~><=-]\s.*$" contains=@bjItemElements
 hi def link bjTaskItem Special
 
 syn match bjDoneItem "^\s*x\s.*$" contains=@bjItemElements
