@@ -52,7 +52,6 @@ syn match bjOrderedListItem "^\s*\d*\.\s.*$" contains=@bjItemElements
 hi def link bjOrderedListItem Normal
 
 hi Ignore ctermfg=22 guifg=#005f00
-hi NonText ctermfg=241 guifg=#626262
 hi SpecialKey ctermfg=239 guifg=#585858
 hi Special gui=bold cterm=bold
 hi Comment gui=bold cterm=bold ctermfg=9  guifg=#ff0000 

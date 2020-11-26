@@ -1,5 +1,4 @@
-
-setlocal autoindent noexpandtab tabstop=2 shiftwidth=2
+setlocal autoindent noexpandtab tabstop=2 shiftwidth=2 breakindent
 setlocal listchars=tab:\│\ 
 setlocal list
 if has("patch-7.4.354")
@@ -8,6 +7,6 @@ if has("patch-7.4.354")
     " Ensures word-wrap does not split words
     setlocal formatoptions=l
     setlocal lbr
-    " Add .. before the wrapped text
-    setlocal showbreak=..
+    " Add spaces before the wrapped text
+    setlocal showbreak=\ \ 
 endif
